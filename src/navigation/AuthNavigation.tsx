@@ -3,14 +3,28 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import LoginScreen from '../Screens/LoginScreen';
 import SignupScreen from '../Screens/SignupScreen';
+import AccountSelection from '../Screens/AccountSelection';
 
 const Stack = createStackNavigator();
 
 const AuthNavigator = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Signup" component={SignupScreen} />
+    <Stack.Navigator initialRouteName="AccountSelection">
+      <Stack.Screen
+        name="AccountSelection"
+        component={AccountSelection}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Login"
+        component={LoginScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Signup"
+        component={SignupScreen}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 };
