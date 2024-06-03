@@ -4,7 +4,6 @@ import {
   TouchableOpacity,
   Text,
   View,
-  StatusBar,
   Image,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
@@ -12,13 +11,11 @@ import {useNavigation} from '@react-navigation/native';
 import Account from '../../asset/images/landing_Image.png';
 import Logo from '../../asset/images/logo.png';
 
-const AccountSelect = ({accounts}) => {
+const AccountSelect = () => {
   const navigation = useNavigation();
-  const [selectedAccount, setSelectedAccount] = useState(null);
 
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor="#5571FF" barStyle="light-content" />
       <View style={styles.content}>
         <Image source={Logo} style={styles.logo} />
         <Text style={styles.connect}>Connect</Text>
@@ -28,6 +25,9 @@ const AccountSelect = ({accounts}) => {
         <Text style={styles.hadAccount}>Don’t have an account ?</Text>
       </TouchableOpacity>
 
+      <View>
+
+      </View>
 
       <TouchableOpacity style={styles.footer}>
         <Text style={styles.contact}>Contact Us</Text>
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   footer: {
     position: 'absolute', // Make it sticky
     bottom: 20, // Adjust the distance from the bottom as needed
-    alignItems: 'center',
+    alignItems: 'center'
   },
 });
 
