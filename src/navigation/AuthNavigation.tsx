@@ -4,6 +4,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import LoginScreen from '../Screens/LoginScreen';
 import SignupScreen from '../Screens/SignupScreen';
 import AccountSelection from '../Screens/AccountSelection';
+import AccountMore from '../Screens/AccountMore';
+
 
 const Stack = createStackNavigator();
 
@@ -15,6 +17,12 @@ const AuthNavigator = () => {
         component={AccountSelection}
         options={{headerShown: false}}
       />
+       <Stack.Screen
+        name="AccountMore"
+        component={AccountMore}
+        options={{headerShown: false}}
+      />
+
       <Stack.Screen
         name="Login"
         component={LoginScreen}

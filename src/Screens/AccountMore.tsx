@@ -7,15 +7,22 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import Account from '../asset/images/landing_Image.png';
+import Apple from '../asset/icons/apple.png';
 import Logo from '../asset/images/logo.png';
 import Google from '../asset/icons/google.png';
 import Steam from '../asset/icons/steam.png';
-import More from '../asset/icons/more.png';
+import Facebook from '../asset/icons/fb.png';
 import Discord from '../asset/icons/discord.png';
-import AccountMore from './AccountMore';
 
-const AccountSelection = ({navigation}) => {
+const AccountMore = () => {
+  const loginOptions = [
+    {image: Discord, name: 'Discord'},
+    {image: Steam, name: 'Steam'},
+    {image: Google, name: 'Google'},
+    {image: Apple, name: 'Apple'},
+    {image: Facebook, name: 'Facebook'},
+  ];
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.content}>
@@ -30,28 +37,13 @@ const AccountSelection = ({navigation}) => {
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
 
-      <Image source={Account} style={styles.image} />
-      <View>
-        <TouchableOpacity style={styles.Signin}>
-          <Text style={styles.SigninText}>Sing in Number</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.Signin}>
-          <Text style={styles.SigninText}>Sing in Email</Text>
-        </TouchableOpacity>
-      </View>
       <View style={styles.loginTerm}>
-        <TouchableOpacity>
-          <Image source={Discord} style={styles.otherLogin} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Image source={Steam} style={styles.otherLogin} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Image source={Google} style={styles.otherLogin} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={navigation.navigate(AccountMore)}>
-          <Image source={More} style={styles.otherLogin} />
-        </TouchableOpacity>
+        {loginOptions.map((option, index) => (
+          <TouchableOpacity key={index} style={styles.button}>
+            <Text style={styles.name}>{option.name}</Text>
+            <Image source={option.image} style={styles.otherLogin} />
+          </TouchableOpacity>
+        ))}
       </View>
 
       <TouchableOpacity style={styles.footer}>
@@ -122,15 +114,32 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   loginTerm: {
-    flexDirection: 'row',
-    marginBottom: 10,
+    width: '90%',
+    alignItems: 'center',
+    backgroundColor:"#282727",
+    borderRadius:10,
+    marginVertical:50
   },
   otherLogin: {
     resizeMode: 'contain',
-    width: 50,
-    height: 179,
-    marginHorizontal: 13,
-    marginVertical: -20,
+    width: 35,
+    height: 35,
+  },
+  name: {
+    flex: 0.75,
+    fontSize: 16,
+    textAlign: 'center',
+    fontWeight: '600',
+  },
+  button: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    height: 42,
+    width: 200,
+    alignItems: 'center',
+    marginVertical:15,
+    borderRadius: 20,
   },
   footer: {
     position: 'absolute', // Make it sticky
@@ -139,4 +148,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AccountSelection;
+export default AccountMore;
