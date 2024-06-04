@@ -22,7 +22,6 @@ const AccountSelection = ({navigation}) => {
         <Image source={Logo} style={styles.logo} />
         <Text style={styles.connect}>Connect</Text>
       </View>
-
       <TouchableOpacity>
         <Text style={styles.hadAccount}>Don’t have an account?</Text>
       </TouchableOpacity>
